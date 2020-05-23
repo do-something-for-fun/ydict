@@ -28,7 +28,7 @@ func (this DictResult) RemoveAudioFile() error {
 	if len(this.AudioFilePath) == 0 {
 		return nil
 	}
-	err := os.Remove(this.AudioFilePath) // clean up
+	err := os.Remove(this.AudioFilePath)
 	if nil != err && !os.IsNotExist(err) {
 		return err
 	}

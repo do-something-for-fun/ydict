@@ -7,22 +7,7 @@
    ╚═╝   ╚═════╝ ╚═╝ ╚═════╝   ╚═╝   
  ```
 
-[![Release][3]][4] [![MIT licensed][5]][6] [![Build Status][1]][2] [![Go Report Card][7]][8]
-
-[1]: https://travis-ci.org/TimothyYe/ydict.svg?branch=master
-[2]: https://travis-ci.org/TimothyYe/ydict
-[3]: http://github-release-version.herokuapp.com/github/timothyye/ydict/release.svg?style=flat
-[4]: https://github.com/TimothyYe/ydict/releases
-[5]: https://img.shields.io/dub/l/vibe-d.svg
-[6]: LICENSE
-[7]: https://goreportcard.com/badge/github.com/timothyye/ydict
-[8]: https://goreportcard.com/report/github.com/timothyye/ydict
-
 Ydict, another command-line youdao dictionary for geeks!
-
-![](https://raw.githubusercontent.com/TimothyYe/ydict/master/snapshots/ydict.gif)
-
-([中文介绍文档](https://github.com/TimothyYe/ydict/blob/master/README_CN.md))
 
 ## Features
 
@@ -35,26 +20,11 @@ Ydict, another command-line youdao dictionary for geeks!
 
 ## Installation
 
-#### Homebrew
-
-```bash
-brew tap timothyye/tap
-brew install timothyye/tap/ydict
-```
-
 #### Using Go
 
 ```bash
-go get github.com/TimothyYe/ydict
+go get github.com/do-something-for-fun/ydict
 ```
-
-#### Manual Installation
-
-Download it from [releases](https://github.com/TimothyYe/ydict/releases), and extact it to /usr/bin.
-
-#### Integrate with Vim
-
-To query words from Vim, you need another Vim plugin: [vim-ydict](https://github.com/TimothyYe/vim-ydict)
 
 ## Speech
 
@@ -125,6 +95,7 @@ ydict -c <word(s) to query>
 
 ```text
 ydict -s "你觉得咋样？"
+```
 
 ## SOCKS5 proxy
 
@@ -159,7 +130,6 @@ ydict -l
 ```bash
 ydict -p 10
 ```
-![](https://raw.githubusercontent.com/TimothyYe/ydict/master/snapshots/play.png)
 
 ## Help
 

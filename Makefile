@@ -1,12 +1,17 @@
 # Binary name
 BINARY=ydict
-# Builds the project
+VERSION=0.1
+
+# Builds
 build:
 		GO111MODULE=on go build -o ${BINARY} -ldflags "-X main.Version=${VERSION}"
 		GO111MODULE=on go test -v
-# Installs our project: copies binaries
+
+# Installs to $GOPATH/bin
 install:
 		GO111MODULE=on go install
+
+# Release for different platforms
 release:
 		# Clean
 		go clean
@@ -27,9 +32,10 @@ release:
 		CGO_ENABLED=0 GOOS=windows GOARCH=amd64 GO111MODULE=on go build -ldflags "-s -w -X main.Version=${VERSION}"
 		tar czvf ${BINARY}-win64-${VERSION}.tar.gz ./${BINARY}.exe
 		go clean
-# Cleans our projects: deletes binaries
+
+# Cleans
 clean:
 		go clean
 		rm -rf *.gz
 
-.PHONY:  clean build
+.PHONY: clean build

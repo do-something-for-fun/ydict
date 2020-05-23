@@ -114,11 +114,7 @@ func getDictDir() string {
 }
 
 func getDictDBDir() string {
-	dbDir := os.Getenv("YDICT_DB")
-	if dbDir == "" {
-		dbDir = filepath.Join(os.Getenv("HOME"), ".ydict")
-	}
-
+	dbDir := getDictDir()
 	ydictDir := filepath.Join(dbDir, "db")
 	return ydictDir
 }

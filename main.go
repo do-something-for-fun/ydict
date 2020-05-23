@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/TimothyYe/ydict/lib"
+	"github.com/do-something-for-fun/ydict/lib"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 )
@@ -14,11 +14,11 @@ var (
 	// Version is used to set the version of ydict
 	Version    = "0.1"
 	withVoice  int
+	withPlay   int
 	withMore   bool
 	withCache  bool
 	isQuiet    bool
 	isDelete   bool
-	withPlay   int
 	withReset  bool
 	withList   bool
 	withBackup bool
@@ -26,7 +26,7 @@ var (
 )
 
 func main() {
-	//Check & load .env file
+	// Check & load .env file
 	lib.LoadEnv()
 
 	if len(os.Args) == 1 ||
@@ -91,15 +91,15 @@ func main() {
 	}
 
 	rootCmd.PersistentFlags().IntVarP(&withVoice, "voice", "v", 0, "Query with voice speech, the default voice play count is 0.")
+	rootCmd.PersistentFlags().IntVarP(&withPlay, "play", "p", 0, "Scan and display all the words in local cache.")
 	rootCmd.PersistentFlags().BoolVarP(&withMore, "more", "m", false, "Query with more example sentences.")
-	rootCmd.PersistentFlags().BoolVarP(&withCache, "cache", "c", false, "Query with local cache, and save the query word(s) into the cache.")
-	rootCmd.PersistentFlags().BoolVarP(&withReset, "reset", "r", false, "Clear all the words from the local cache.")
+	rootCmd.PersistentFlags().BoolVarP(&withCache, "cache", "c", true, "Query with local cache, and save the query word(s) into the cache.")
 	rootCmd.PersistentFlags().BoolVarP(&isQuiet, "quiet", "q", false, "Query with quiet mode, don't show spinner.")
 	rootCmd.PersistentFlags().BoolVarP(&isDelete, "delete", "d", false, "Remove word(s) from the cache.")
-	rootCmd.PersistentFlags().IntVarP(&withPlay, "play", "p", 0, "Scan and display all the words in local cache.")
+	rootCmd.PersistentFlags().BoolVarP(&withReset, "reset", "r", false, "Clear all the words from the local cache.")
 	rootCmd.PersistentFlags().BoolVarP(&withList, "list", "l", false, "List all the words from the local cache.")
-	rootCmd.PersistentFlags().BoolVarP(&isSentence, "sentence", "s", false, "Translation of sentences.")
 	rootCmd.PersistentFlags().BoolVarP(&withBackup, "backup", "b", false, "Backup the cached words.")
+	rootCmd.PersistentFlags().BoolVarP(&isSentence, "sentence", "s", false, "Translation of sentences.")
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

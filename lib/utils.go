@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"runtime"
 	"strings"
 	"time"
@@ -61,17 +60,8 @@ func IsAvailableOS() bool {
 	return false
 }
 
-func getExecutePath() string {
-	ex, err := os.Executable()
-	if err != nil {
-		panic(err)
-	}
-
-	return filepath.Dir(ex)
-}
-
 func LoadEnv() {
-	exPath := getExecutePath()
+	exPath := getDictDir()
 	envPath := fmt.Sprintf("%s/.env", exPath)
 
 	// if .env file doesn't exist, just return
@@ -96,7 +86,7 @@ func ParseArgs(args []string) (
 	withCache bool,
 	clearCache bool,
 ) {
-	//match argument: -v or -m or -q
+	// match argument: -v or -m or -q
 	wordStartIndex := findWordStartIndex(args)
 	paramArray := args[:wordStartIndex]
 	if elementInStringArray(paramArray, "-m") {

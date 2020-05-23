@@ -1,4 +1,4 @@
-module github.com/TimothyYe/ydict
+module github.com/do-something-for-fun/ydict
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.0

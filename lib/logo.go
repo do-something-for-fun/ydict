@@ -3,7 +3,6 @@ package lib
 import "github.com/fatih/color"
 
 var (
-	//Version of ydict
 	logo = `
 ██╗   ██╗██████╗ ██╗ ██████╗████████╗
 ╚██╗ ██╔╝██╔══██╗██║██╔════╝╚══██╔══╝
@@ -13,7 +12,7 @@ var (
    ╚═╝   ╚═════╝ ╚═╝ ╚═════╝   ╚═╝   
 
 YDict V%s
-https://github.com/TimothyYe/ydict
+https://github.com/do-something-for-fun/ydict
 
 `
 )

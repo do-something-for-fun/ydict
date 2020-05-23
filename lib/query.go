@@ -62,7 +62,7 @@ func (this QueryParam) DoQuery() {
 		}
 	}
 
-	//Init spinner
+	// Init spinner
 	var s *spinner.Spinner
 	if !this.IsQuiet {
 		s = spinner.New(spinner.CharSets[35], 100*time.Millisecond)
